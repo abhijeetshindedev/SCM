@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <meta charset="UTF-8">
+    <title>home</title>
+    <!-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .container {
-            margin: auto;
-            width: 50%;
-            padding: 30px;
-            background: #e2e2e2;
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"> -->
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Home Page</h1>
+    <!-- <div class="container bg-gray-200 w-1/2 p-4 flex flex-col space-y-3 mx-auto m-4 items-center">
+        <h1 class="text-2xl font-bold">Welcome to Home Page</h1>
         <!-- <h3 data-th-text="${name}" =""></h3> -->
-        <h3>Organization Name : <span data-th-text="${name}"></span></h3>
+        <h3 class="text-xl text-gray-700">Organization Name : <span data-th-text="${name}"></span></h3>
         <h3>User Name : <span data-th-text="${userName}"></span></h3>
         <h3>Git Repo : <span data-th-text="${gitRepo}"></span></h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse atque dignissimos quos, est voluptate porro quo ad non libero reiciendis temporibus quasi totam numquam obcaecati omnis voluptas nemo et, quod rem ipsam qui. Harum voluptatum eligendi illo laudantium maxime et atque at ullam sapiente, amet voluptatibus ipsam provident enim perspiciatis delectus. Ab omnis aut totam quam nesciunt numquam repellendus, corrupti amet fuga quo suscipit consequuntur. Dolore atque, non natus voluptatem nemo neque, adipisci optio incidunt, accusamus ullam architecto deserunt dolores eius quis voluptate aliquid facilis nesciunt ipsam temporibus praesentium modi consequatur? Quasi molestiae placeat, maiores nulla fugit alias est dolore?</p>
+        <a data-th-href="${gitRepo}">Click here to open Repo</a>
+        <p class="text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse atque dignissimos quos, est voluptate porro quo ad non libero reiciendis temporibus quasi totam numquam obcaecati omnis voluptas nemo et, quod rem ipsam qui. Harum voluptatum eligendi illo laudantium maxime et atque at ullam sapiente, amet voluptatibus ipsam provident enim perspiciatis delectus. Ab omnis aut totam quam nesciunt numquam repellendus, corrupti amet fuga quo suscipit consequuntur. Dolore atque, non natus voluptatem nemo neque, adipisci optio incidunt, accusamus ullam architecto deserunt dolores eius quis voluptate aliquid facilis nesciunt ipsam temporibus praesentium modi consequatur? Quasi molestiae placeat, maiores nulla fugit alias est dolore?</p>
+        <div class="flex justify-center">
+            <button class="px-3 rounded py-1 bg-blue-300 text-white hover:bg-blue-400">Click Me</button>
+        </div>
+    </div> -->
+    <div id="content">
+        <h1>This is Home page</h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nihil libero voluptates asperiores unde dolorem veritatis quae architecto, nulla sapiente?
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>

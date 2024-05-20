@@ -1,2 +1,0 @@
-# SCM
-Smart Contact Manger

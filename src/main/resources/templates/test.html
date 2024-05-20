@@ -1,0 +1,30 @@
+<!-- moon icon -->
+<i class="fa-solid fa-moon"></i>
+
+<!-- sun icon -->
+
+<!-- bulb icon - light -->
+<i class="fa-regular fa-lightbulb"></i>
+
+<!-- bulb icon - dark -->
+<i class="fa-solid fa-lightbulb"></i>
+
+console.log("curent Theme : " + currenttheme);
+// set the listner to change theme
+const changeThemeBtn = document.querySelector("#change-theme-btn");
+changeThemeBtn.addEventListener("click", (event) => {
+    const oldTheme = currenttheme;
+    console.log("change theme btn clicked");
+    if(currenttheme == 'light') {
+        currenttheme = 'dark';
+    }
+    else{
+        currenttheme = 'light';
+    }
+    // update in local storage
+    setTheme(currenttheme);
+    // remove old theme
+    document.querySelector("html").classList.remove(oldTheme);
+    // add new theme
+    document.querySelector("html").classList.add(currenttheme);
+})
