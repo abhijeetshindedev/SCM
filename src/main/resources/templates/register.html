@@ -12,14 +12,18 @@
                 <div 
                 href="#" 
                 class="block  p-6 bg-white border-t-[12px] border-t-blue-700  border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-900  dark:hover:bg-gray-800 dark:border-t-blue-700">
+
                 <h5 
                     class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Register User
                 </h5>
                 <p 
-                    class="font-normal text-gray-700 dark:text-gray-400">
+                    class="font-normal text-gray-700 dark:text-gray-400 mb-4">
                     Join us, manage your contacts smartly!!!
                 </p>
+
+                <!-- message frgment -->
+                <div data-th-replace="~{message :: messagebox}"></div>
                 <!-- form -->
                 <form 
                 data-th-action="@{/registerUser}" 
@@ -43,6 +47,8 @@
                     <div class="relative z-0 w-full mb-5 group">
                         <input data-th-field="*{password}" type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+                        <button type="button" onclick="togglePasswordVisibility('floating_password')" class="absolute right-0 top-0 mt-3 mr-3 text-gray-600 hover:text-gray-700"><i class="fa-solid fa-eye fa-sm"></i></button>
+                        
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <!--  -->
@@ -53,6 +59,7 @@
                         <!--  -->
                         <input type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+                        <button type="button" onclick="togglePasswordVisibility('floating_repeat_password')" class="absolute right-0 top-0 mt-3 mr-3 text-gray-600 hover:text-gray-700"><i class="fa-solid fa-eye fa-sm"></i></button>
                         <p id="passwordMismatch" class="text-red-500 text-sm mt-2 hidden">Password is not matching</p>
                     </div>
                     
@@ -86,6 +93,17 @@
     <script>
         // console.log("in about page");
         // alert("in about page");
+        function togglePasswordVisibility(id) {
+            const passwordField = document.getElementById(id);
+            const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+            passwordField.setAttribute("type", type);
+
+            // Change the button text
+            const button = passwordField.nextElementSibling;
+            // button.textContent = type === "password" ? "Show" : "Hide";
+        }
+
+
         document.addEventListener('input', function () {
             const firstName = document.getElementById('floating_first_name').value;
             const lastName = document.getElementById('floating_last_name').value;

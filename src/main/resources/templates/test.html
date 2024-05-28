@@ -1,30 +1,60 @@
-<!-- moon icon -->
-<i class="fa-solid fa-moon"></i>
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Test</title>
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"> -->
+</head>
+<body>
+    <!-- <div class="container bg-gray-200 w-1/2 p-4 flex flex-col space-y-3 mx-auto m-4 items-center">
+        <h1 class="text-2xl font-bold">Welcome to Home Page</h1>
+        <h3 data-th-text="${name}" =""></h3> -->
+        <h3 class="text-xl text-gray-700">Organization Name : <span data-th-text="${name}"></span></h3>
+        <h3>User Name : <span data-th-text="${userName}"></span></h3>
+        <h3>Git Repo : <span data-th-text="${gitRepo}"></span></h3>
+        <a data-th-href="${gitRepo}">Click here to open Repo</a>
+        <p class="text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse atque dignissimos quos, est voluptate porro quo ad non libero reiciendis temporibus quasi totam numquam obcaecati omnis voluptas nemo et, quod rem ipsam qui. Harum voluptatum eligendi illo laudantium maxime et atque at ullam sapiente, amet voluptatibus ipsam provident enim perspiciatis delectus. Ab omnis aut totam quam nesciunt numquam repellendus, corrupti amet fuga quo suscipit consequuntur. Dolore atque, non natus voluptatem nemo neque, adipisci optio incidunt, accusamus ullam architecto deserunt dolores eius quis voluptate aliquid facilis nesciunt ipsam temporibus praesentium modi consequatur? Quasi molestiae placeat, maiores nulla fugit alias est dolore?</p>
+        <div class="flex justify-center">
+            <button class="px-3 rounded py-1 bg-blue-300 text-white hover:bg-blue-400">Click Me</button>
+        </div>
+    </div>
+    <div id="content">
+        <h1>This is Test page</h1>
+        <div th:if="${message}">
+            <!-- Include the green fragment if the message type is SUCCESS -->
+            <div th:if="${message.type.name() == 'SUCCESS'}"
+                 th:insert="{message :: message_box_green}">
+            </div>
+    
+            <!-- Include the red fragment if the message type is ERROR -->
+            <div th:if="${message.type.name() == 'ERROR'}"
+                 th:insert="~{message :: message-box-red}">
+            </div>
+    
+            <!-- Include the orange fragment if the message type is WARNING -->
+            <div th:if="${message.type.name() == 'WARNING'}"
+                 th:insert="~{message :: message-box-yellow}">
+            </div>
+        </div>
+            <div class="block  p-6 bg-white border-t-[12px] border-t-blue-700  border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-900  dark:hover:bg-gray-800 dark:border-t-blue-700">
+                <h5 
+                    class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Register User
+                </h5>
+                <p 
+                    class="font-normal text-gray-700 dark:text-gray-400">
+                    Join us, manage your contacts smartly!!!
+                </p>
 
-<!-- sun icon -->
-
-<!-- bulb icon - light -->
-<i class="fa-regular fa-lightbulb"></i>
-
-<!-- bulb icon - dark -->
-<i class="fa-solid fa-lightbulb"></i>
-
-console.log("curent Theme : " + currenttheme);
-// set the listner to change theme
-const changeThemeBtn = document.querySelector("#change-theme-btn");
-changeThemeBtn.addEventListener("click", (event) => {
-    const oldTheme = currenttheme;
-    console.log("change theme btn clicked");
-    if(currenttheme == 'light') {
-        currenttheme = 'dark';
-    }
-    else{
-        currenttheme = 'light';
-    }
-    // update in local storage
-    setTheme(currenttheme);
-    // remove old theme
-    document.querySelector("html").classList.remove(oldTheme);
-    // add new theme
-    document.querySelector("html").classList.add(currenttheme);
-})
+                <button type="submit"  id="submitBtn" class="text-white bg-gray-600 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        
+            </div>
+        </div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nihil libero voluptates asperiores unde dolorem veritatis quae architecto, nulla sapiente?
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>

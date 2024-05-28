@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.scm.demo.Entities.User;
+import com.scm.demo.Utilities.Message;
+import com.scm.demo.Utilities.MessageType;
 import com.scm.demo.service.UserService;
 
 import forms.UserForm;
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -26,7 +29,7 @@ public class PageController {
     
     //pocessing Register
     @PostMapping("/registerUser")
-    public String registerProcess( @ModelAttribute UserForm userForm){
+    public String registerProcess( @ModelAttribute UserForm userForm, HttpSession session){
         System.out.println("Register user Process...");
         //fetch the form data
         System.out.println(userForm);
@@ -41,7 +44,8 @@ public class PageController {
             about(userForm.getAbout()).build();
         userService.saveUser(user);
         //message
-
+        Message succMessage = Message.builder().msgContent("User Registerd Successfully!!!").type(MessageType.green).build();
+        session.setAttribute("message", succMessage);
         //redirect
         return "redirect:/register"; 
     }
@@ -55,6 +59,21 @@ public class PageController {
         model.addAttribute("gitRepo", "https://github.com/abhijeetshindedev/SCM");
         
        return "home"; 
+    }
+
+    @RequestMapping("/test")
+    public String testPage(Model model) {
+        System.out.println("test page loading...");
+        // model.addAttribute("name", "AB's Tech");
+        // model.addAttribute("userName", "Abhijeet Shinde");
+        // model.addAttribute("gitRepo", "https://github.com/abhijeetshindedev/SCM");
+        Message succMessage = Message.builder().
+            msgContent("User Registerd Successfully!!!").
+            type(MessageType.green).
+            build();
+        model.addAttribute("message", succMessage);
+        //redirect
+        return "test"; 
     }
 
     @RequestMapping("/about")

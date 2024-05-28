@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.scm.demo.Entities.Providers;
 import com.scm.demo.Entities.User;
 import com.scm.demo.exception.ResourceNotFoundException;
 import com.scm.demo.repo.UserRepo;
@@ -34,6 +35,7 @@ public class UserServiceImpl implements UserService {
 
         //set default profile picture
         user.setProfilePicLink(DefaultProfilePicture);
+        user.setProvider(Providers.SELF);
         User saveUser = userRepo.save(user);
         return saveUser;
     }

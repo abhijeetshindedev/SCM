@@ -10,3 +10,4 @@ npx tailwindcss -i  ./src/main/resources/static/css/input.css -o src/main/resour
 #sign up:
     add code to check password matching,
     name = first name + last name --> add logic.
+    add view password feature

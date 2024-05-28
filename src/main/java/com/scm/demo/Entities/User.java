@@ -4,6 +4,7 @@ import java.util.*;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -35,8 +36,8 @@ public class User {
     private boolean emailVarified = false;
     private boolean phoneVarified = false;
     //self,Google,Github
-    @Enumerated
-    private Providers provider = Providers.self;
+    @Enumerated(value = EnumType.STRING)
+    private Providers provider = Providers.SELF;
     private String providerUserId;
     // add more fields when needed
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
