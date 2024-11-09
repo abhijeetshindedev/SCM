@@ -6,10 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.scm.demo.Entities.Providers;
 import com.scm.demo.Entities.User;
+import com.scm.demo.Utilities.AppConstants;
 import com.scm.demo.exception.ResourceNotFoundException;
 import com.scm.demo.repo.UserRepo;
 import com.scm.demo.service.UserService;
@@ -27,11 +29,16 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public User saveUser(User user) {
         //encrypt password
-        //user.setPassword(user.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // set the user role
+        user.setRoleList(List.of(AppConstants.ROLE_USER));;
 
         //set default profile picture
         user.setProfilePicLink(DefaultProfilePicture);

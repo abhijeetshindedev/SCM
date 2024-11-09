@@ -19,10 +19,10 @@ public class Contact {
     private String phoneNumber;
     private String address;
 
-    @Column(length = 10000)
+    @Column(length = 1000)
     private String profilePicture;
     
-    @Column(length = 10000)
+    @Column(length = 1000)
     private String about;
     private boolean fevorite = false;
     private String websiteLink;
