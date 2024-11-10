@@ -18,6 +18,9 @@ import com.scm.demo.service.UserService;
 import forms.UserForm;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -28,7 +31,13 @@ public class PageController {
     @Autowired
     private UserService userService;
 
+    // index
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/home";
+    }
     
+
     //pocessing Register
     @PostMapping("/registerUser")
     public String registerProcess( @Valid @ModelAttribute UserForm userForm,BindingResult result, HttpSession session){
