@@ -85,7 +85,7 @@ public class SecurityConfig {
         // httpSecurity.formLogin(Customizer.withDefaults());
         // customized login Page
         httpSecurity.formLogin(formLogin -> {
-            formLogin.loginPage("/login");
+            formLogin.loginPage("/signin");
             formLogin.loginProcessingUrl("/authenticate");
             formLogin.successForwardUrl("/user/dashboard");
             formLogin.defaultSuccessUrl("/user/dashboard");
@@ -118,6 +118,14 @@ public class SecurityConfig {
             logoutForm.logoutUrl("/logout");
             logoutForm.logoutSuccessUrl("/signin?logout=true");
         });
+
+        // OAuth Configurations
+        httpSecurity.oauth2Login(oauth -> {
+            oauth.loginPage("/signin");
+            // oauth2.defaultSuccessUrl("/user/dashboard");
+            // oauth2.failureUrl("/signin?error=true");
+        });
+
         return httpSecurity.build();
     }
 

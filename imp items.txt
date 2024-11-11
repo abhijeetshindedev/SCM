@@ -11,3 +11,8 @@ npx tailwindcss -i  ./src/main/resources/static/css/input.css -o src/main/resour
     add code to check password matching,
     name = first name + last name --> add logic.
     add view password feature
+
+#OAuth client id and password
+    Client ID - 1031314354704-6ccj26qg09mq7pfe2soh42p78q74dl6o.apps.googleusercontent.com
+    Client secret - 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
+    
