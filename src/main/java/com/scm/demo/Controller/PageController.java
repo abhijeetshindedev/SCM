@@ -56,7 +56,7 @@ public class PageController {
             password(userForm.getPassword()).
             phoneNumber(userForm.getPhoneNumber()).
             about(userForm.getAbout()).build();
-        userService.saveUser(user);
+            userService.saveUser(user);
         //message
         Message succMessage = Message.builder().msgContent("User Registerd Successfully!!!").type(MessageType.green).build();
         session.setAttribute("message", succMessage);

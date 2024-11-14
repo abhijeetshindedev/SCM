@@ -68,6 +68,8 @@ public class SecurityConfig {
     }
 
     // configure securityFilterChain
+    @Autowired
+    private OAuthSuccessHandler oAuthSuccessHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
@@ -122,6 +124,7 @@ public class SecurityConfig {
         // OAuth Configurations
         httpSecurity.oauth2Login(oauth -> {
             oauth.loginPage("/signin");
+            oauth.successHandler(oAuthSuccessHandler);
             // oauth2.defaultSuccessUrl("/user/dashboard");
             // oauth2.failureUrl("/signin?error=true");
         });
