@@ -49,11 +49,12 @@ public class OAuthSuccessHandler implements AuthenticationSuccessHandler {
                 // log.info("provider is google");
                 // save user data in DB
             DefaultOAuth2User user = (DefaultOAuth2User) authentication.getPrincipal();
-            log.info("user name : " + user.getName());
+            // log.info("user name : " + user.getName());
             user.getAttributes().forEach((key, value) -> {
-                log.info(key + " : " + value);
+                // log.info(key + " : " + value);
             });
             String email = user.getAttributes().get("email").toString();
+            log.info("username : " + email);
             User userFromDB = userRepo.findByEmail(email).orElse(null);
             if (userFromDB != null) {
                 log.info("user already exists");
@@ -78,14 +79,15 @@ public class OAuthSuccessHandler implements AuthenticationSuccessHandler {
 
         //if provider is github
         if (provider.equals("github")) {
-            log.info("provider is github");
+            // log.info("provider is github");
             // save user data in DB
             DefaultOAuth2User user = (DefaultOAuth2User) authentication.getPrincipal();
-            log.info("user name : " + user.getName());
+            // log.info("user name : " + user.getName());
             user.getAttributes().forEach((key, value) -> {
-                log.info(key + " : " + value);
+                // log.info(key + " : " + value);
             });
             String email = user.getAttributes().get("email").toString();
+            log.info("username : " + email);
             User userFromDB = userRepo.findByEmail(email).orElse(null);
             if (userFromDB != null) {
                 log.info("user already exists");

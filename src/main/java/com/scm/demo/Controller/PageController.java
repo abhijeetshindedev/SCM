@@ -38,7 +38,7 @@ public class PageController {
     }
     
 
-    //pocessing Register
+    //pocessing Register user
     @PostMapping("/registerUser")
     public String registerProcess( @Valid @ModelAttribute UserForm userForm,BindingResult result, HttpSession session){
         System.out.println("Register user Process...");
@@ -111,6 +111,7 @@ public class PageController {
         return "contact";
     }
 
+    // Loading page for login 
     @RequestMapping("/signin")
     public String signIn(Model model){
         // model.addAttribute("isLogin", false);
@@ -118,6 +119,7 @@ public class PageController {
         return "signin";
     }
 
+    // Loading page for register
     @RequestMapping("/register")
     public String register(Model model){
         // model.addAttribute("isLogin", false);
