@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.scm.demo.Entities.User;
@@ -25,20 +26,12 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
+
     //user dashboard
     @GetMapping("/dashboard")
     public String userDashboard(Model model, Principal principal){
         System.out.println("User Dashboard Loading......");
-        // String name = principal.getName();
-        // got principal as response from OAuthSuccessHandler
-        Authentication authentication = (Authentication) principal;
-        // Pass here to get email of logged in user
-        String email = OAuthHelper.getEmailFromPrincipal(principal);
-        log.info("user name in controller : " + email);
-        
-        // fetch data from database
-        User user = userService.getUserByEmail(email);
-        model.addAttribute("loggedInUser",user);
         return "user/dashboard";
     }
 

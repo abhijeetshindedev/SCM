@@ -20,8 +20,23 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body class="dark:bg-gray-700 dark:text-white bg-gray-200"> 
     <!-- Commen-header -->
+
+    <!-- will check if its loggedin user, if yes will use user_navbar if not will use normal one -->
+    <!-- <div th:if="${loggedInUser}" >
+        <div data-th-replace="~{user/user_navbar :: user_navbar}"></div>
+    </div>
+    <div th:unless="${loggedInUser}" >
+        <div data-th-replace="~{navbar :: navbar}"></div>
+    </div> -->
     <div data-th-replace="~{navbar :: navbar}"></div>
 
+    <!-- sidebar -->
+    <div th:if="${loggedInUser}">
+        <div  data-th-replace="~{user/side_navbar :: sidebar}" ></div>
+    </div>
+
+
+    <!-- main content -->
     <div class="p-4  w-full">
         <section data-th-replace="${content}" ></section>
     </div>
