@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}" class="pl-64 pt-18" style="height: 1000px;">
 <head>
     <title th:text="${loggedInUser.name}+' | Dashboard'">Dashboard</title>
     <!-- <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}"> -->
 </head>
 <body>
-    <div id="content">
+    <div id="content" class="p-4">
         <h1>This is User dashboard</h1>
         <h2>Loggd in as: <span th:text="${loggedInUser.name}"></span></h2>
         <h2>Email: <span th:text="${loggedInUser.email}"></span></h2>

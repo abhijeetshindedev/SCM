@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <title th:text="${loggedInUser.name}+' | Profile'">Dashboard</title>
+    <title th:text="${loggedInUser.name}+' | Profile'">Profile</title>
     <!-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -9,8 +9,13 @@
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}"> -->
 </head>
 <body>
-    <div id="content">
-        <h1>This is User Profile</h1>
+
+    <!-- <div th:if="${loggedInUser}">
+        <div  data-th-replace="~{user/side_navbar :: sidebar}" ></div>
+    </div> -->
+
+    <div id="content" class="pl-4 pt-4">
+        <h1 class="text-center text-5xl">This is User Profile</h1>
         <h2>Loggd in as: <span th:text="${loggedInUser.name}"></span></h2>
         <h2>Email: <span th:text="${loggedInUser.email}"></span></h2>
         <button

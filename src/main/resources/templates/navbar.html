@@ -1,12 +1,12 @@
-<nav th:fragment="navbar" class="bg-white border-gray-900 dark:bg-gray-900 shadow-md ">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 w-full ">
+<nav th:fragment="navbar" class="bg-white border-gray-900 dark:bg-gray-900 shadow-md fixed w-full">
+    <div class="max-w-screen-xl flex items-right justify-between mx-auto p-4 w-full">
     <!-- SCM Icon and name -->
-    <a data-th-href="@{/home}" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a data-th-href="@{/home}" class="flex items-left space-x-3 rtl:space-x-reverse mr-14 ">
         <img data-th-src="@{/images/contact.png}"  class="h-8" alt="Flowbite Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SCM</span>
     </a>
 
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse  gap-1 sm:">
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse  gap-1 sm: ml-14">
         <!-- light-dark button -->
         <button 
             id="theme_change_btn" 
@@ -39,7 +39,7 @@
 
     <!-- menue -->
     <div
-    class="items-center ml-10 justify-between hidden w-full md:flex md:w-auto md:order-1"
+    class="items-center ml-10 justify-between hidden w-full md:flex md:w-auto md:order-1 mr-14 ml-14"
     id="navbar-cta"
     >
     <ul
