@@ -24,11 +24,6 @@ public class UserForm {
     @Size(min = 10, max = 12, message = "Phone number must be at least 10 characters long")
     private String phoneNumber;
     private String about;
-    
-
-
-
-
 
     //toString
     @Override
