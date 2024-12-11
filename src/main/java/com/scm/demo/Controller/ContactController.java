@@ -1,6 +1,7 @@
 package com.scm.demo.Controller;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -103,6 +104,16 @@ public class ContactController {
         //redirect
         return "redirect:/user/contacts/add"; 
     }
-    
+
+    @RequestMapping()
+    public String viewContacts( Principal principal , Model model){
+        String userEmail = OAuthHelper.getEmailFromPrincipal(principal);
+        User user = userService.getUserByEmail(userEmail);
+        log.info("user : " + user);
+        List<Contact> contacts = contactService.getContactsByUser(user);
+        model.addAttribute("contacts",contacts);
+        return "user/contacts";
+    }
+
     
 }

@@ -3,6 +3,7 @@ package com.scm.demo.service;
 import java.util.List;
 
 import com.scm.demo.Entities.Contact;
+import com.scm.demo.Entities.User;
 
 public interface ContactService {
     Contact saveContact(Contact contact);
@@ -21,5 +22,5 @@ public interface ContactService {
 
     List<Contact> getAllContact();
 
-    List<Contact> getContactsByUser(Integer userId);
+    List<Contact> getContactsByUser(User user);
 }

@@ -23,11 +23,13 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity(name = "user")
 @Table(name = "user")
-@Data
 @Builder
+@Getter
+@Setter
 public class User  implements UserDetails{
 
     @Id
@@ -120,6 +122,14 @@ public class User  implements UserDetails{
         return this.enabled;
     }
 
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", about=" + about
+                + ", profilePicLink=" + profilePicLink + ", phoneNumber=" + phoneNumber + ", enabled=" + enabled
+                + ", emailVarified=" + emailVarified + ", phoneVarified=" + phoneVarified + ", provider=" + provider
+                + ", providerUserId=" + providerUserId + ", roleList=" + roleList + "]";
+    }
 
+    
 
 }
